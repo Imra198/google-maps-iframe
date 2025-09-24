@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Embedded content</title>
+        <style>
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            margin: 20px 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .iframe-container {
+                padding-bottom: 75%; /* 4:3 Aspect Ratio */
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Visit Our Store</h1>
+            <p>Find us at our convenient downtown location</p>
+        </header>
+
+        <main>
+            <section class="iframe-section">
+                <h2>Our Location</h2>
+                <p>We're located in the heart of the city, easily accessible by public transport.</p>
+                
+                <div class="iframe-container">
+
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=YOUR_MAP_EMBED_CODE"
+                    title="Google Maps Location"
+                    width="600"
+                    height="450"
+                    loading="lazy"
+                    allowfullscreen=""
+                    referrerpolicy="no-referrer-when-downgrade"
+                    sandbox="allow-scripts allow-same-origin allow-popups">
+                </iframe>
+                    <p>Your browser does not support iframes. Please visit our
+                    <a href="location-link">location page</a>.</p>
+                </div>
+
+                <div class="iframe-controls">
+                    <button onclick="reloadFrame()">Reload Content</button>
+                    <button onclick="toggleFullscreen()">Fullscreen</button>
+                </div>
+            </section>
+
+            
+        
+
+        <aside class="location-info">
+            <h3>Store Hours</h3>
+            <ul>
+                <li>Monday - Friday: 9am - 9pm</li>
+                <li>Saturday: 10am - 6pm</li>
+                <li>Sunday: Closed</li>
+            </ul>
+
+            <h3>Contact Us</h3>
+            <p>Email: info@example.com</p>
+
+        </aside>
+    </main>
+
+        <script>
+            function reloadFrame(){
+                const frame = document.querySelector('iframe');
+                frame.src = frame.src;
+            }
+
+            function toggleFullscreen(){
+                const frame = document.querySelector('iframe');
+                if (frame.requestFullscreen){
+                    frame.requestFullscreen();
+                }
+            }
+        </script>
+        
+    </body>
+    </html>
+    
